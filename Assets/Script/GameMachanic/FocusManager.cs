@@ -90,8 +90,8 @@ public class FocusManager : MonoSingleton<FocusManager>
                     {
                         Vector3 NormalX = Vector3.Cross(TextItemTrans.up, CameraTrans.forward).normalized;
                         Vector3 NormalY = Vector3.Cross(TextItemTrans.right, CameraTrans.forward).normalized;
-                        TextItemTrans.position += NormalX * mouseX * 0.05f * MoveSensitivity;
-                        TextItemTrans.position += NormalY * mouseY * 0.05f * MoveSensitivity;
+                        TextItemTrans.position += NormalX * mouseX * 0.01f * MoveSensitivity;
+                        TextItemTrans.position += NormalY * mouseY * 0.01f * MoveSensitivity;
                     }
                 }
             }
