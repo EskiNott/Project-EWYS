@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    private bool gamePause;
+    private void Start()
+    {
+        gamePause = false;
+    }
+
+    public void GamePause(bool Pause)
+    {
+        gamePause = Pause;
+    }
 
     public static RaycastHit RaycastPhysical()
     {
