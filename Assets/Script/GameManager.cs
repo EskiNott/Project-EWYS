@@ -15,6 +15,11 @@ public class GameManager : MonoSingleton<GameManager>
         gamePause = Pause;
     }
 
+    private void RaycastManager()
+    {
+        RaycastHit hit = RaycastPhysical();
+    }
+
     public static RaycastHit RaycastPhysical()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
