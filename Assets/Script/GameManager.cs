@@ -69,7 +69,7 @@ public class GameManager : MonoSingleton<GameManager>
             EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current) { position = Input.mousePosition }, RayResult);
             if (RayResult.Count > 0)
             {
-                Debug.Log(RayResult[0].gameObject.name);
+                
             }
         }
     }
@@ -88,5 +88,31 @@ public class GameManager : MonoSingleton<GameManager>
             _list.Insert(UnityEngine.Random.Range(0, _list.Count), item);
         }
         return _list;
+    }
+
+    public static bool IsChildHasParent(Transform child, Transform endPoint, Transform target)
+    {
+        bool found = false;
+        Transform test = child;
+        if (test == target)
+        {
+            found = true;
+        }
+        else
+        {
+            while (test != null && endPoint != null && test != endPoint)
+            {
+                if (test == target)
+                {
+                    found = true;
+                    break;
+                }
+                else
+                {
+                    test = test.parent;
+                }
+            }
+        }
+        return found;
     }
 }

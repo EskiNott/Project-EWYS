@@ -119,7 +119,7 @@ public class FlowManager : MonoSingleton<FlowManager>
         {
             BlackScreenCanvasGroup.gameObject.SetActive(true);
         } 
-        else if (BlackScreen && BlackScreenCanvasGroup.alpha <= 0.01f && BlackScreenCanvasGroup.gameObject.activeSelf)
+        else if (!BlackScreen && BlackScreenCanvasGroup.alpha <= 0.01f && BlackScreenCanvasGroup.gameObject.activeSelf)
         {
             BlackScreenCanvasGroup.alpha = 0;
             BlackScreenCanvasGroup.gameObject.SetActive(false);

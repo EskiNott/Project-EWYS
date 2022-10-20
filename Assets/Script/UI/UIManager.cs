@@ -52,6 +52,7 @@ public class UIManager : MonoSingleton<UIManager>
     public void PausePanel_Continue_OnClick()
     {
         SetPanelActive(PausePanel, false);
+        GameManager.Instance.GamePause(false);
     }
 
     public void SetPanelActive(UIPanel Panel, bool active)
