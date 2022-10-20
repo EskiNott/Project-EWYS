@@ -5,12 +5,13 @@ using UnityEngine;
 public class alarm_clock : InteractableItem
 {
     [SerializeField] private Transform SecondHandTrans;
+    [SerializeField] private AudioSource AlarmClockAudioSource;
     private float RotateTiming;
 
     private void Start()
     {
         RotateTiming = -99999;
-        StartCoroutine(WaitForBackgroundMusic(0.5f)); ;
+        StartCoroutine(WaitForBackgroundMusic(0.5f));
     }
 
     protected override void Update()
@@ -32,8 +33,14 @@ public class alarm_clock : InteractableItem
     IEnumerator WaitForBackgroundMusic(float time)
     {
         yield return new WaitForSeconds(time);
-        RotateTiming = 0;
+        AlarmClockAudioSource.Play();
+        RotateTiming = 1;
     }
 
-
+    public override void OnInteract()
+    {
+        base.OnInteract();
+        FlowManager.Instance.ChangeDay();
+        IsInteractable = false;
+    }
 }

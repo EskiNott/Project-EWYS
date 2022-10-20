@@ -386,6 +386,7 @@ MonoBehaviour:
   IsInteractable: 0
   outline: {fileID: 8105386079053059776}
   SecondHandTrans: {fileID: 2275641765097303149}
+  AlarmClockAudioSource: {fileID: 0}
 --- !u!114 &8105386079053059776
 MonoBehaviour:
   m_ObjectHideFlags: 0

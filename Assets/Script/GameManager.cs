@@ -73,4 +73,20 @@ public class GameManager : MonoSingleton<GameManager>
             }
         }
     }
+
+    /// <summary>
+    /// 将List乱序
+    /// </summary>
+    /// <typeparam name="T">List类型</typeparam>
+    /// <param name="originList">原List</param>
+    /// <returns>乱序后的一个新List</returns>
+    public static List<T> ShuffleList<T>(List<T> originList)
+    {
+        List<T> _list = new List<T>();
+        foreach (var item in originList)
+        {
+            _list.Insert(UnityEngine.Random.Range(0, _list.Count), item);
+        }
+        return _list;
+    }
 }

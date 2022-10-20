@@ -31,7 +31,7 @@ public class FocusManager : MonoSingleton<FocusManager>
 
     public void CheckTextItemObject(Transform ItemTrans, float Distance)
     {
-        Vector3 SpawnPos = CameraTrans.forward * Distance;
+        Vector3 SpawnPos = CameraTrans.position + CameraTrans.forward * Distance;
 
         OriginItemPosition = ItemTrans.position;
         OriginItemRotation = ItemTrans.rotation;

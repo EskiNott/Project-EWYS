@@ -14,6 +14,9 @@ public class FlowManager : MonoSingleton<FlowManager>
     [SerializeField] private GameObject[] Lights;
     [SerializeField] private CanvasGroup StartMenuCanvasGroup;
     [SerializeField] private CanvasGroup BlackScreenCanvasGroup;
+    [SerializeField] private List<GameObject> ShuffledCharms;
+    public alarm_clock clock;
+    public AudioPlayer LightButtonClick;
 
     private bool BlackScreen;
 
@@ -28,10 +31,12 @@ public class FlowManager : MonoSingleton<FlowManager>
         Day = 1;
         StartGame = false;
         BlackScreen = false;
+        BlackScreenCanvasGroup.alpha = 0;
         originalRotationVector = new(6.4f, -93.3f, 0);
         startRotationVector = new(6.4f, -74.7f, 0);
         MainCam.m_Lens.FieldOfView = 25;
         GameObjectsInit();
+        ShuffledCharms = GameManager.ShuffleList<GameObject>(new List<GameObject>(Charms));
     }
 
     // Update is called once per frame
@@ -44,38 +49,69 @@ public class FlowManager : MonoSingleton<FlowManager>
 
     public void ChangeDay()
     {
-        
         Day++;
-        StartCoroutine(ChangeDayEvent(5));
-        StartCoroutine(BlackScreenClose(7));
+        if(Day <= 7)
+        {
+            BlackScreen = true;
+            StartCoroutine(ChangeDayEvent(5));
+            StartCoroutine(BlackScreenClose(7));
+            StartCoroutine(OpenTheLight(8));
+        }
+        else
+        {
+
+        }
+
     }
     IEnumerator ChangeDayEvent(float Time)
     {
-        switch (Day)
-        {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            case 7:
-                break;
-        }
         yield return new WaitForSeconds(Time);
+        for(int i = 0; i < Day; i++)
+        {
+            Letters[i].SetActive(true);
+        }
+        for (int i = 0; i < Day*6; i++)
+        {
+            BookShelf[i].SetActive(true);
+        }
+        for (int i = 1; i < Day; i++)
+        {
+            if(loopTime == 0)
+            {
+                Charms[i].SetActive(true);
+            }
+            else
+            {
+                ShuffledCharms[i].SetActive(true);
+            }
+        }
         BlackScreen = false;
+    }
+
+    IEnumerator OpenTheLight(float Time)
+    {
+        yield return new WaitForSeconds(Time);
+        foreach (GameObject i in Lights)
+        {
+            i.SetActive(true);
+        }
+        LightButtonClick.audioSource.Play();
     }
 
     private void BlackScreenManage()
     {
         int target = BlackScreen ? 1 : 0;
-        BlackScreenCanvasGroup.alpha = Mathf.Lerp(BlackScreenCanvasGroup.alpha, target, Time.deltaTime * 0.2f);
+        BlackScreenCanvasGroup.alpha = Mathf.Lerp(BlackScreenCanvasGroup.alpha, target, Time.deltaTime * 2);
+        if (BlackScreen && !BlackScreenCanvasGroup.gameObject.activeSelf)
+        {
+            BlackScreenCanvasGroup.gameObject.SetActive(true);
+        } 
+        else if (BlackScreen && BlackScreenCanvasGroup.alpha <= 0.01f && BlackScreenCanvasGroup.gameObject.activeSelf)
+        {
+            BlackScreenCanvasGroup.alpha = 0;
+            BlackScreenCanvasGroup.gameObject.SetActive(false);
+        }
+
     }
 
     IEnumerator BlackScreenClose(float Time)
@@ -124,6 +160,7 @@ public class FlowManager : MonoSingleton<FlowManager>
         {
             i.SetActive(true);
         }
+        StartCoroutine(ChangeDayEvent(0));
     }
 
     private void GameObjectsInit()
@@ -137,6 +174,10 @@ public class FlowManager : MonoSingleton<FlowManager>
             i.SetActive(false);
         }
         foreach (GameObject i in Charms)
+        {
+            i.SetActive(false);
+        }
+        foreach(GameObject i in Lights)
         {
             i.SetActive(false);
         }
