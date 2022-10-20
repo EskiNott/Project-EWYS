@@ -9,6 +9,10 @@ public class FocusManager : MonoSingleton<FocusManager>
     [SerializeField] private Transform CameraTrans;
     private Transform TextItemTrans;
     private FocusingItem TextItemFocusingItem;
+
+    private Vector3 OriginItemPosition;
+    private Quaternion OriginItemRotation;
+
     public float ZoomSensitivity = 1.0f;
     public float MoveSensitivity = 1.0f;
     private float mouseCenter;
@@ -24,19 +28,22 @@ public class FocusManager : MonoSingleton<FocusManager>
     private void Update()
     {
         FocusOnObject();
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            CheckTextItemObject(TextPrefab, 1.0f);
-        }
     }
 
-    public void CheckTextItemObject(GameObject Prefab, float Distance)
+    public void CheckTextItemObject(Transform ItemTrans, float Distance)
     {
         Vector3 SpawnPos = CameraTrans.forward * Distance;
-        GameObject Item = Instantiate(Prefab, SpawnPos, Quaternion.identity);
-        TextItemTrans = Item.transform;
-        TextItemFocusingItem = Item.GetComponent<FocusingItem>();
+
+        OriginItemPosition = ItemTrans.position;
+        OriginItemRotation = ItemTrans.rotation;
+
+        ItemTrans.position = SpawnPos;
+        ItemTrans.rotation = Quaternion.identity;
+
+        TextItemTrans = ItemTrans;
+        TextItemFocusingItem = ItemTrans.GetComponent<FocusingItem>();
         TextItemTrans.LookAt(CameraTrans);
+
         isFocusing = true;
     }
 
