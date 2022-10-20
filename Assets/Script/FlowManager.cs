@@ -15,6 +15,10 @@ public class FlowManager : MonoSingleton<FlowManager>
     [SerializeField] private CanvasGroup StartMenuCanvasGroup;
     [SerializeField] private CanvasGroup BlackScreenCanvasGroup;
     [SerializeField] private List<GameObject> ShuffledCharms;
+    [SerializeField] private Texture[] DeskMaterial;
+    [SerializeField] private Texture[] ShelfMaterial;
+    [SerializeField] private GameObject[] Desk;
+    [SerializeField] private GameObject Shelf;
     public alarm_clock clock;
     public AudioPlayer LightButtonClick;
 
@@ -55,18 +59,27 @@ public class FlowManager : MonoSingleton<FlowManager>
             BlackScreen = true;
             StartCoroutine(ChangeDayEvent(5));
             StartCoroutine(BlackScreenClose(7));
-            StartCoroutine(OpenTheLight(8));
+            StartCoroutine(OpenTheLight(9));
         }
         else
         {
-
+            
         }
 
     }
     IEnumerator ChangeDayEvent(float Time)
     {
         yield return new WaitForSeconds(Time);
-        for(int i = 0; i < Day; i++)
+        if(Day > 1)
+        {
+            GameObjectsInit();
+        }
+        Shelf.GetComponent<Renderer>().material.mainTexture = ShelfMaterial[Day];
+        foreach(GameObject i in Desk)
+        {
+            i.GetComponent<Renderer>().material.mainTexture = DeskMaterial[Day];
+        }
+        for (int i = 0; i < Day; i++)
         {
             Letters[i].SetActive(true);
         }
@@ -161,6 +174,7 @@ public class FlowManager : MonoSingleton<FlowManager>
             i.SetActive(true);
         }
         StartCoroutine(ChangeDayEvent(0));
+        LightButtonClick.audioSource.Play();
     }
 
     private void GameObjectsInit()

@@ -17,6 +17,7 @@ public class UIManager : MonoSingleton<UIManager>
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SetPanelActive(PausePanel, !PausePanel.GetPanelActiveStat());
+            GameManager.Instance.GamePause(PausePanel.GetPanelActiveStat());
         }
     }
 

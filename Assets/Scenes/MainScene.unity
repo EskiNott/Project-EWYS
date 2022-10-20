@@ -638,7 +638,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 25
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2852,7 +2852,28 @@ MonoBehaviour:
   StartMenuCanvasGroup: {fileID: 954092693}
   BlackScreenCanvasGroup: {fileID: 1570649087}
   ShuffledCharms: []
+  DeskMaterial:
+  - {fileID: 2800000, guid: ceaf39436f8d8e943bb641c1777242d3, type: 3}
+  - {fileID: 2800000, guid: bc2bd156caad92b4cb5d9abd85d1517f, type: 3}
+  - {fileID: 2800000, guid: 3cc0848bb7fd48e48a4a032dbec9aac6, type: 3}
+  - {fileID: 2800000, guid: af67716fc44b9394ea4d6805f720767a, type: 3}
+  - {fileID: 2800000, guid: f0dcda516d995f240a56c8448683bd6f, type: 3}
+  - {fileID: 2800000, guid: 5c3f34a8c657a6542a2d6b4d79f7a5de, type: 3}
+  - {fileID: 2800000, guid: 9201a70e439e61c41872abb0fb8e0dd8, type: 3}
+  ShelfMaterial:
+  - {fileID: 2800000, guid: be24afcd803ffa3419a253f9883040b5, type: 3}
+  - {fileID: 2800000, guid: ce50cae5015e2c34b896e22567d3aa9e, type: 3}
+  - {fileID: 2800000, guid: 557e2b96d7e0d2040a296261a92e422c, type: 3}
+  - {fileID: 2800000, guid: 7e3da4a9250693d4ba4356900ac11456, type: 3}
+  - {fileID: 2800000, guid: 4eec1439a2ba33e449fe3ecb10a1798e, type: 3}
+  - {fileID: 2800000, guid: 6073645fda2c5ce4a8fd1e721fc739d9, type: 3}
+  - {fileID: 2800000, guid: a46af698212286a4fa145e27ff6d5968, type: 3}
+  Desk:
+  - {fileID: 7965657319705602751}
+  - {fileID: 5559315796001594457}
+  Shelf: {fileID: 1006027460337790871}
   clock: {fileID: 919132148847430806}
+  LightButtonClick: {fileID: 1985143339}
   StartGame: 0
 --- !u!1 &1343604579
 GameObject:
@@ -2945,7 +2966,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 644879360}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 25
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
