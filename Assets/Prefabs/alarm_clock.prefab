@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 6221521710468829055}
   - component: {fileID: 4845018374405674853}
   - component: {fileID: 8105386079053059776}
+  - component: {fileID: 7348673218873306656}
   m_Layer: 0
   m_Name: alarm_clock
   m_TagString: InteractableItem
@@ -382,6 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb517d2514edaa54b95d3c0159a21666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsInteractable: 0
+  outline: {fileID: 8105386079053059776}
   SecondHandTrans: {fileID: 2275641765097303149}
 --- !u!114 &8105386079053059776
 MonoBehaviour:
@@ -390,17 +393,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6709406477755372997}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 6
+  outlineWidth: 3
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!65 &7348673218873306656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709406477755372997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15019974, y: 0.17565387, z: 0.07559635}
+  m_Center: {x: -0.0029770061, y: 0.08725981, z: 0.007450461}
 --- !u!1 &6821864175405837393
 GameObject:
   m_ObjectHideFlags: 0

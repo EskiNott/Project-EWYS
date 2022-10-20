@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3700623138484310487}
   - component: {fileID: 357080377061138034}
   - component: {fileID: 2526640336913902264}
+  - component: {fileID: 2786119325771367076}
   m_Layer: 0
   m_Name: antique_ceramic_vase
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2786119325771367076
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039888912779479917}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25502998, y: 0.2550299, z: 0.43955296}
+  m_Center: {x: 0.000000007450581, y: 0, z: 0.2196584}

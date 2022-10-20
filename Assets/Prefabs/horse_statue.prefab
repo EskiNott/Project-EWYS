@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3479160235142913921}
   - component: {fileID: 9065532149353832568}
+  - component: {fileID: 95304085619668256}
   m_Layer: 0
   m_Name: horse_statue
   m_TagString: Untagged
@@ -86,3 +87,16 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0040684827, y: 0.000014744699, z: 0.110007755}
     m_Extent: {x: 0.08190183, y: 0.053895433, z: 0.10998946}
   m_DirtyAABB: 0
+--- !u!65 &95304085619668256
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252424306898486587}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16380367, y: 0.10779084, z: 0.21997887}
+  m_Center: {x: 0.0040684827, y: 0.000014744696, z: 0.11000773}

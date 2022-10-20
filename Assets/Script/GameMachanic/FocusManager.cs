@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FocusManager : MonoSingleton<FocusManager>
 {
-    private bool isFocusing;
+    public bool isFocusing;
     [SerializeField] private Transform CameraTrans;
     private Transform TextItemTrans;
     private FocusingItem TextItemFocusingItem;
@@ -18,7 +18,6 @@ public class FocusManager : MonoSingleton<FocusManager>
     private float mouseCenter;
     private bool isDragging;
 
-    [SerializeField] private GameObject TextPrefab;
     private void Start()
     {
         isFocusing = false;
@@ -54,7 +53,8 @@ public class FocusManager : MonoSingleton<FocusManager>
             if (Input.GetMouseButtonDown(1))
             {
                 isFocusing = false;
-                Destroy(TextItemTrans.gameObject);
+                TextItemTrans.position = OriginItemPosition;
+                TextItemTrans.rotation = OriginItemRotation;
                 TextItemTrans = null;
                 TextItemFocusingItem = null;
                 return;

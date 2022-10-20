@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4959192373799191252}
   - component: {fileID: 8321891958594178417}
   - component: {fileID: 6096110196285733307}
+  - component: {fileID: 3504647241958854518}
   m_Layer: 0
   m_Name: food_apple
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3504647241958854518
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735694340061190254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09756118, y: 0.0959017, z: 0.08538993}
+  m_Center: {x: -0.0003992319, y: -0.0021338514, z: 0.042672344}

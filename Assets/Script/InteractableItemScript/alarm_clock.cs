@@ -13,8 +13,9 @@ public class alarm_clock : InteractableItem
         StartCoroutine(WaitForBackgroundMusic(0.5f)); ;
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         RotateTiming += Time.deltaTime;
         SecondHandRotate();
     }

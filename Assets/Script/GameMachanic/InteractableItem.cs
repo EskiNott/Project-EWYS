@@ -5,10 +5,14 @@ using UnityEngine;
 public class InteractableItem : MonoBehaviour
 {
     public bool IsInteractable;
+    public Outline outline;
     private void Start()
     {
         gameObject.tag = "InteractableItem";
     }
-
+    protected virtual void Update()
+    {
+        outline.enabled = false;
+    }
     public virtual void OnInteract() { }
 }

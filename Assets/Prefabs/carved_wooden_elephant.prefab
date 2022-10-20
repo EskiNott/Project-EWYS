@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 402779499607534847}
   - component: {fileID: 3618974659705676634}
   - component: {fileID: 1575654101100091280}
+  - component: {fileID: 2848147001787444080}
   m_Layer: 0
   m_Name: carved_wooden_elephant
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2848147001787444080
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071053512673785413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10918298, y: 0.05755654, z: 0.09615057}
+  m_Center: {x: 0.0069784294, y: -0.0042585423, z: 0.0474697}
