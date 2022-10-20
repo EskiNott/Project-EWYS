@@ -25,8 +25,8 @@ public class FlowManager : MonoSingleton<FlowManager>
     private bool BlackScreen;
 
     public bool StartGame;
-    private int loopTime;
-    private int Day;
+    public int loopTime;
+    public int Day;
 
     // Start is called before the first frame update
     void Start()
@@ -54,19 +54,36 @@ public class FlowManager : MonoSingleton<FlowManager>
     public void ChangeDay()
     {
         Day++;
-        if(Day <= 7)
+        BlackScreen = true;
+        if (Day <= 7)
         {
-            BlackScreen = true;
-            StartCoroutine(ChangeDayEvent(5));
-            StartCoroutine(BlackScreenClose(7));
-            StartCoroutine(OpenTheLight(9));
+            NormallyChangeDay();
         }
         else
         {
-            
+            StartCoroutine(EndPanelWait(5));
         }
 
     }
+
+    public void NormallyChangeDay()
+    {
+        StartCoroutine(ChangeDayEvent(5));
+        StartCoroutine(BlackScreenClose(7));
+        StartCoroutine(OpenTheLight(9));
+    }
+
+    IEnumerator EndPanelWait(float Time)
+    {
+        yield return new WaitForSeconds(Time);
+        UIManager.Instance.EndPanel.SetPanelActive(true);
+        UIManager.Instance.EndPanel.SetChildActive(1, true);
+        if(loopTime > 0)
+        {
+            UIManager.Instance.EndPanel.SetChildActive(2, true);
+        }
+    }
+
     IEnumerator ChangeDayEvent(float Time)
     {
         yield return new WaitForSeconds(Time);

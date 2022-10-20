@@ -5,10 +5,11 @@ using UnityEngine;
 public class UIManager : MonoSingleton<UIManager>
 {
     public UIPanel PausePanel;
-
+    public UIPanel EndPanel;
     private void Update()
     {
         PausePanelActiveControl();
+        EndPanelControl();
         KeyControl();
     }
 
@@ -19,6 +20,42 @@ public class UIManager : MonoSingleton<UIManager>
             SetPanelActive(PausePanel, !PausePanel.GetPanelActiveStat());
             GameManager.Instance.GamePause(PausePanel.GetPanelActiveStat());
         }
+    }
+
+    private void EndPanelControl()
+    {
+        int target;
+        target = EndPanel.GetPanelActiveStat() ? 1 : 0;
+        EndPanel.canvasGroup.alpha = Mathf.Lerp(EndPanel.canvasGroup.alpha, target, Time.deltaTime * EndPanel.changeSpeed);
+        if (EndPanel.GetPanelActiveStat() && !EndPanel.gameObject.activeSelf)
+        {
+            EndPanel.gameObject.SetActive(true);
+        }
+        else if (EndPanel.canvasGroup.alpha < 0.01f && !EndPanel.GetPanelActiveStat())
+        {
+            EndPanel.canvasGroup.alpha = 0;
+            EndPanel.gameObject.SetActive(false);
+        }
+    }
+
+    public void EndPanel_FirstOption_OnClick()
+    {
+        FlowManager.Instance.loopTime++;
+        FlowManager.Instance.Day = 0;
+        EndPanel.SetPanelActive(false);
+        EndPanel.SetChildActive(0, true);
+        EndPanel.SetChildActive(1, true);
+        EndPanel.SetChildActive(2, false);
+        EndPanel.SetChildActive(3, false);
+        FlowManager.Instance.NormallyChangeDay();
+
+    }
+    public void EndPanel_SecondOption_OnClick()
+    {
+        EndPanel.SetChildActive(0, false);
+        EndPanel.SetChildActive(1, false);
+        EndPanel.SetChildActive(2, false);
+        EndPanel.SetChildActive(3, true);
     }
 
     private void PausePanelActiveControl()
