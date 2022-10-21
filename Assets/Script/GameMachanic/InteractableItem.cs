@@ -6,6 +6,7 @@ public class InteractableItem : MonoBehaviour
 {
     public bool IsInteractable;
     public Outline outline;
+    public bool DisableOutline;
     private void Start()
     {
         gameObject.tag = "InteractableItem";

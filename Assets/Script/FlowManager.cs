@@ -91,10 +91,10 @@ public class FlowManager : MonoSingleton<FlowManager>
         {
             GameObjectsInit();
         }
-        Shelf.GetComponent<Renderer>().material.mainTexture = ShelfMaterial[Day];
+        Shelf.GetComponent<Renderer>().material.mainTexture = ShelfMaterial[Day - 1];
         foreach(GameObject i in Desk)
         {
-            i.GetComponent<Renderer>().material.mainTexture = DeskMaterial[Day];
+            i.GetComponent<Renderer>().material.mainTexture = DeskMaterial[Day - 1];
         }
         for (int i = 0; i < Day; i++)
         {
@@ -108,11 +108,11 @@ public class FlowManager : MonoSingleton<FlowManager>
         {
             if(loopTime == 0)
             {
-                Charms[i].SetActive(true);
+                Charms[i - 1].SetActive(true);
             }
             else
             {
-                ShuffledCharms[i].SetActive(true);
+                ShuffledCharms[i - 1].SetActive(true);
             }
         }
         BlackScreen = false;
@@ -124,6 +124,18 @@ public class FlowManager : MonoSingleton<FlowManager>
         foreach (GameObject i in Lights)
         {
             i.SetActive(true);
+        }
+        foreach (GameObject i in Letters)
+        {
+            i.GetComponent<InteractableItem>().IsInteractable = true;
+        }
+        foreach (GameObject i in Charms)
+        {
+            InteractableItem II = i.GetComponent<InteractableItem>();
+            if (II != null)
+            {
+                II.IsInteractable = true;
+            }
         }
         LightButtonClick.audioSource.Play();
     }
@@ -191,10 +203,22 @@ public class FlowManager : MonoSingleton<FlowManager>
             i.SetActive(true);
         }
         StartCoroutine(ChangeDayEvent(0));
+        foreach (GameObject i in Letters)
+        {
+            i.GetComponent<InteractableItem>().IsInteractable = true;
+        }
+        foreach (GameObject i in Charms)
+        {
+            InteractableItem II = i.GetComponent<InteractableItem>();
+            if (II != null)
+            {
+                II.IsInteractable = true;
+            }
+        }
         LightButtonClick.audioSource.Play();
     }
 
-    private void GameObjectsInit()
+    public void GameObjectsInit()
     {
         foreach(GameObject i in BookShelf)
         {
@@ -203,10 +227,16 @@ public class FlowManager : MonoSingleton<FlowManager>
         foreach (GameObject i in Letters)
         {
             i.SetActive(false);
+            i.GetComponent<InteractableItem>().IsInteractable = false;
         }
         foreach (GameObject i in Charms)
         {
             i.SetActive(false);
+            InteractableItem II = i.GetComponent<InteractableItem>();
+            if(II != null)
+            {
+                II.IsInteractable = false;
+            }
         }
         foreach(GameObject i in Lights)
         {

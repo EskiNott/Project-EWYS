@@ -41,12 +41,13 @@ public class UIManager : MonoSingleton<UIManager>
     public void EndPanel_FirstOption_OnClick()
     {
         FlowManager.Instance.loopTime++;
-        FlowManager.Instance.Day = 0;
+        FlowManager.Instance.Day = 1;
         EndPanel.SetPanelActive(false);
         EndPanel.SetChildActive(0, true);
         EndPanel.SetChildActive(1, true);
         EndPanel.SetChildActive(2, false);
         EndPanel.SetChildActive(3, false);
+        FlowManager.Instance.GameObjectsInit();
         FlowManager.Instance.NormallyChangeDay();
 
     }

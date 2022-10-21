@@ -39,7 +39,7 @@ public class GameManager : MonoSingleton<GameManager>
                     Outline outline = go.GetComponent<Outline>();
                     if (II.IsInteractable)
                     {
-                        if(outline != null)
+                        if(outline != null && !II.DisableOutline)
                         {
                             outline.enabled = true;
                         }

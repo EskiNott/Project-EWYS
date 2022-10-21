@@ -1160,7 +1160,7 @@ MonoBehaviour:
   - {fileID: 1148744343}
   - {fileID: 951433998}
   - {fileID: 1405131824}
-  changeSpeed: 0.7
+  changeSpeed: 5
 --- !u!225 &348724120
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7974,7 +7974,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -9558,6 +9558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsInteractable: 1
   outline: {fileID: 5559315796001594468}
+  DisableOutline: 1
   audioPlayer: {fileID: 5559315796001594464}
 --- !u!114 &5559315796001594468
 MonoBehaviour:
@@ -9571,8 +9572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineMode: 4
+  outlineColor: {r: 1, g: 1, b: 1, a: 0}
   outlineWidth: 0
   precomputeOutline: 0
   bakeKeys: []
@@ -9751,7 +9752,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -11088,6 +11089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsInteractable: 1
   outline: {fileID: 7528811939562892935}
+  DisableOutline: 1
   audioPlayer: {fileID: 7528811939562892931}
 --- !u!114 &7528811939562892935
 MonoBehaviour:
@@ -11101,8 +11103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineMode: 4
+  outlineColor: {r: 1, g: 1, b: 1, a: 0}
   outlineWidth: 0
   precomputeOutline: 0
   bakeKeys: []
@@ -11341,6 +11343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsInteractable: 1
   outline: {fileID: 7965657319705602756}
+  DisableOutline: 1
   audioPlayer: {fileID: 7965657319705602752}
 --- !u!114 &7965657319705602756
 MonoBehaviour:
@@ -11354,8 +11357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineMode: 4
+  outlineColor: {r: 1, g: 1, b: 1, a: 0}
   outlineWidth: 0
   precomputeOutline: 0
   bakeKeys: []
